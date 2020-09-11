@@ -1,0 +1,52 @@
+{
+	"format_version": 1,
+	"imports": [{
+		"target_table": "GRACREQUEST.Header",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "header.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+         	"include_filter" : [ ],		
+			"import_columns": ["REQID",
+			"CREATEDBY",
+			"CREATEDAT",
+			"BPROC"]
+		},
+		"column_mappings": {
+			"REQID": 1,
+			"CREATEDBY": 2,
+			"CREATEDAT": 3,
+			"BPROC": 4
+		}
+	},
+	{
+		"target_table": "GRACREQPROVITEM.Item",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "item.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"import_settings": {
+           	"include_filter" : [ ],		
+			"import_columns": ["ReqHeader.REQID",
+			"ITEMNUM",
+			"CONNECTOR",
+			"CURRENCY" ]
+		},
+		"column_mappings": {
+			"ReqHeader.REQID": 1,
+			"ITEMNUM": 2,
+			"CONNECTOR": 3,
+			"CURRENCY": 4		}
+	}]
+}

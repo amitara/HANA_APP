@@ -1,0 +1,10 @@
+service {
+    "GRACREQUEST.Header"
+	  as "REQHeader" navigates ("Items" as "REQItem");
+
+	"GRACREQPROVITEM.Item"
+	  as "REQItem";
+
+	association "Items" principal  "REQHeader"("REQID")
+	multiplicity "1" dependent "REQItem"("REQHeader.REQID") multiplicity "*";
+}

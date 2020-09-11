@@ -1,0 +1,16 @@
+VIEW "GRACREQUEST.ItemView" COMMENT 'Request Item View' (
+     "REQID",
+	 "ITEMNUM",
+	 "CONNECTOR",
+	 "BPROC",
+	 "CREATEDBY",
+	 "CREATEDON"
+	 ) AS SELECT
+	 "Item_$0"."ReqHeader"."REQID" AS "REQID" ,
+	 "Item_$0"."ITEMNUM" AS "ITEMNUM",
+	 "Item_$0"."CONNECTOR" AS "CONNECTOR",
+	 "Item_$0"."ReqHeader"."BPROC" AS "BPROC" ,
+	 "Item_$0"."ReqHeader"."CREATEDBY" AS "CREATEDBY" ,
+	 "Item_$0"."ReqHeader"."CREATEDAT" AS "CREATEDON"
+FROM "GRACREQPROVITEM.Item" AS "Item_$0"
+WITH READ ONLY STRUCTURED PRIVILEGE CHECK 
